@@ -26,12 +26,12 @@ def create_spark_session():
 def process_song_data(spark, input_data, output_data):
     # get filepath to song data file
     song_data = 's3a://udacity-dend/song_data'
-    input_data = "s3a://udacity-dend/"
+    #input_data = "s3a://udacity-dend/"
     #song_data = os.path.join(input_data, "song_data/A/A/A/TRAAAAK128F9318786.json")
 
-    
+
     # read song data file
-    df = spark.read.json("data/local-Songdata/song_data/A/A/A/TRAAAAW128F429D538.json")
+    df = os.path.join(input_data, "song_data/A/A/A/TRAAAAW128F429D538.json")
 
     # extract columns to create songs table
     songs_table = df.select('song_id', 'title','artist_id', 'year', 'duration')
